@@ -1,4 +1,4 @@
-<%= form_for(@contact, html: {class: "form-horizontal"}) do |f| %>
+<%= form_for(@contact, multipart:true, html: {class: "form-horizontal"}) do |f| %>
   <div class="panel-body">
     <% if @contact.errors.any? %>
       <div id="error_explanation">
@@ -54,6 +54,26 @@
         <%= f.hidden_field :tag_list, :class => "form-control", :placeholder => t("contacts.address_city") %>
       </div>
     </div>
+
+    <div clas="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :avatar %></label>
+      <div class="col-md-9">
+        <div class="fileinput <%= @contact.avatar.present? ? 'fileinput-exists' : 'fileinput-new' %>" data-provides="fileinput">
+          <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+          </div>
+          <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+            <% if @contact.avatar.present? %>
+              <img src="<%= @contact.avatar.url %>"/>
+            <% end %>
+          </div>
+          <div>
+            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field "avatar" %></span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </div>
   <div class="panel-footer">

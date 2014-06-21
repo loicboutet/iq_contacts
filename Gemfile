@@ -43,6 +43,7 @@ gem 'algoliasearch-rails'
 gem 'acts-as-taggable-on'
 gem 'carrierwave'
 gem 'fog'
+gem 'mini_magick', '~> 3.7.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
