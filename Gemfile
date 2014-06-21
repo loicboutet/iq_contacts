@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -28,6 +29,7 @@ group :development do
   gem 'less-rails'
   gem 'better_errors'
   gem 'byebug'
+  gem 'quiet_assets'
 end
 
 
@@ -35,6 +37,9 @@ gem 'therubyracer'
 
 # for heroku
 gem 'rails_12factor', group: :production
+
+# algolia for seach functionnality
+gem 'algoliasearch-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

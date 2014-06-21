@@ -34,10 +34,10 @@
 				<li class="visible-md visible-lg"><a href="/#" id="home"><i class="fa fa-bars"></i></a></li>
 				<li class="visible-xs visible-sm"><a href="/#" id="sidebar-menu"><i class="fa fa-bars"></i></a></li>
 			</ul>
-			<form class="navbar-form navbar-left">
+			<%= form_tag contacts_url, method: :get, class: "navbar-form navbar-left" do %>
 				<i class="fa fa-search"></i>
-				<input type="text" class="form-control" placeholder="Search...">
-			</form>
+				<%= text_field_tag "search", nil, placeholder: "Search... ", class: "form-control" %>
+			<% end %>
 	    <ul class="nav navbar-nav navbar-right">
 				<li class="dropdown visible-md visible-lg">
 	        		<a href="/#" class="dropdown-toggle" data-toggle="dropdown"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;padding:0 7px"></a>
