@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="iQ Contacts - the best contact management webapp">
+		  <meta name="author" content="Loïc Boutet">
+	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_url("apple-touch-icon-144-precomposed.png")%>">
+  		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= image_url("apple-touch-icon-114-precomposed.png")%>">
+  		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= image_url("apple-touch-icon-72-precomposed.png")%>">
+  		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="<%= image_url("apple-touch-icon-57-precomposed.png")%>">
+  		<link rel="shortcut icon" href="<%= image_url("favicon.png")%>">
+
+	    <title>iQ Contacts - the best contact management webapp</title>
+
+	    <!-- Bootstrap core CSS -->
+	    <%= stylesheet_link_tag("application") %>
+
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+</head>
+
+<body class="sidebar-hide">
+		<!-- start: Header -->
+	<div class="navbar" role="navigation">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav navbar-actions navbar-left">
+				<li class="visible-md visible-lg"><a href="/#" id="home"><i class="fa fa-bars"></i></a></li>
+				<li class="visible-xs visible-sm"><a href="/#" id="sidebar-menu"><i class="fa fa-bars"></i></a></li>
+			</ul>
+			<form class="navbar-form navbar-left">
+				<i class="fa fa-search"></i>
+				<input type="text" class="form-control" placeholder="Search...">
+			</form>
+	    <ul class="nav navbar-nav navbar-right">
+				<li class="dropdown visible-md visible-lg">
+	        		<a href="/#" class="dropdown-toggle" data-toggle="dropdown"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;padding:0 7px"></a>
+	        		<ul class="dropdown-menu">
+						<li><a href="/#"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;"> US</a></li>
+						<li><a href="/#"><img src="<%= image_url("flags/Spain.png")%>" style="height:18px; margin-top:-2px;"> Spanish</a></li>
+						<li><a href="/#"><img src="<%= image_url("flags/Germany.png")%>" style="height:18px; margin-top:-2px;"> German</a></li>
+						<li><a href="/#"><img src="<%= image_url("flags/Poland.png")%>" style="height:18px; margin-top:-2px;"> Polish</a></li>
+	        		</ul>
+	      		</li>
+				<li><a href="/contacts/new"><i class="fa fa-plus"></i></a></li>
+				<li><a href="/#"><i class="fa fa-cog"></i></a></li>
+				<li class="dropdown visible-md visible-lg">
+	        		<a href="/#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i><span class="badge">!</span></a>
+	        		<ul class="dropdown-menu">
+						<li class="dropdown-menu-header text-center">
+							<strong>Account</strong>
+						</li>
+						<li><a href="/#"><i class="fa fa-bell-o"></i> Updates <span class="label label-info">42</span></a></li>
+						<li><a href="/#"><i class="fa fa-envelope-o"></i> Messages <span class="label label-success">42</span></a></li>
+						<li><a href="/#"><i class="fa fa-tasks"></i> Tasks <span class="label label-danger">42</span></a></li>
+						<li><a href="/#"><i class="fa fa-comments"></i> Comments <span class="label label-warning">42</span></a></li>
+						<li class="dropdown-menu-header text-center">
+							<strong>Settings</strong>
+						</li>
+						<li><a href="/#"><i class="fa fa-user"></i> Profile</a></li>
+						<li><a href="/#"><i class="fa fa-wrench"></i> Settings</a></li>
+						<li><a href="/#"><i class="fa fa-usd"></i> Payments <span class="label label-default">42</span></a></li>
+						<li><a href="/#"><i class="fa fa-file"></i> Projects <span class="label label-primary">42</span></a></li>
+						<li class="divider"></li>
+						<li><a href="/#"><i class="fa fa-shield"></i> Lock Profile</a></li>
+						<li><a href="/#"><i class="fa fa-lock"></i> Logout</a></li>
+	        		</ul>
+	      		</li>
+				<li><a href="/#"><i class="fa fa-power-off"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end: Header -->
+
+		<div class="container-fluid content">
+		<div class="row">
+
+
+			<!-- start: Content -->
+			<div class="main ">
+
+
+			<div class="row">
+
+				<%= yield %>
+
+			</div><!--/.row-->
+
+	</div><!--/container-->
+
+
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<p>Here settings can be configured...</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div class="clearfix"></div>
+
+
+	<!-- start: JavaScript-->
+	<%= javascript_include_tag("application") %>
+
+
+
+</body>
+</html>

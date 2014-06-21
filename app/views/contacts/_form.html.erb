@@ -1,0 +1,62 @@
+<%= form_for(@contact, html: {class: "form-horizontal"}) do |f| %>
+  <div class="panel-body">
+    <% if @contact.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+        <ul>
+        <% @contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :first_name %></label>
+      <div class="col-md-9">
+        <%= f.text_field :first_name, :class => "form-control", :placeholder => t("contacts.first_name") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :last_name %></label>
+      <div class="col-md-9">
+        <%= f.text_field :last_name, :class => "form-control", :placeholder => t("contacts.last_name") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :company %></label>
+      <div class="col-md-9">
+        <%= f.text_field :company, :class => "form-control", :placeholder => t("contacts.company") %>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :address_street %></label>
+      <div class="col-md-9">
+        <%= f.text_field :address_street, :class => "form-control", :placeholder => t("contacts.address_street") %>
+      </div>
+    </div>
+
+    <div clas="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :address_city %></label>
+      <div class="col-md-9">
+        <%= f.text_field :address_city, :class => "form-control", :placeholder => t("contacts.address_city") %>
+      </div>
+    </div>
+
+  </div>
+  <div class="panel-footer">
+    <%= button_tag(type: 'submit', class: "btn btn-sm btn-primary") do %>
+      <i class="fa fa-dot-circle-o"></i> <%= t("contacts.submit") %>
+    <% end %>
+
+    <%= link_to(contacts_url, class: "btn btn-sm btn-default") do %>
+      <i class="fa fa-ban"></i> <%= t("contacts.cancel") %>
+    <% end %>
+
+  </div>
+<% end %>
