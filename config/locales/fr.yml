@@ -9,6 +9,10 @@
 fr:
   contacts:
     first_name: "Prénom"
+  tags:
+    work: "Travail"
+    friends: "Amis"
+    familly: "Famille"
   date:
     abbr_day_names:
       - dim

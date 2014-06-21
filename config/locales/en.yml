@@ -27,3 +27,7 @@ en:
     company: "Company"
     address_street: "Street"
     address_city: "City"
+  tags:
+    work: "Work"
+    familly: "Familly"
+    friends: "Friends"

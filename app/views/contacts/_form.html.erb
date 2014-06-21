@@ -48,6 +48,13 @@
       </div>
     </div>
 
+    <div clas="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :tag_list %></label>
+      <div class="col-md-9">
+        <%= f.hidden_field :tag_list, :class => "form-control", :placeholder => t("contacts.address_city") %>
+      </div>
+    </div>
+
   </div>
   <div class="panel-footer">
     <%= button_tag(type: 'submit', class: "btn btn-sm btn-primary") do %>
@@ -59,4 +66,16 @@
     <% end %>
 
   </div>
+<% end %>
+
+<% content_for :javascript do %>
+  <script>
+    $(function(){
+      $('#contact_tag_list').select2({
+        // specify tags
+        tags: ["<%= t('tags.work') %>", "<%= t('tags.friends') %>", "<%= t('tags.familly') %>"],
+        tokenSeparators: [","]
+      });
+    });
+  </script>
 <% end %>

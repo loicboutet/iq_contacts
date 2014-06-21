@@ -40,7 +40,9 @@ gem 'rails_12factor', group: :production
 
 # algolia for seach functionnality
 gem 'algoliasearch-rails'
-
+gem 'acts-as-taggable-on'
+gem 'carrierwave'
+gem 'fog'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
