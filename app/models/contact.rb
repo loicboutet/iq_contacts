@@ -6,7 +6,10 @@ class Contact < ActiveRecord::Base
                    :auto_geocode=>{:field=>:address,
                                    :error_message=> I18n.t("errors.could_not_geocode")}
 
-  validates_presence_of :first_name, :last_name
+  belongs_to :user
+
+  validates_presence_of :first_name, :last_name, :user_id
+
   after_save :algolia_index
 
   algoliasearch per_environment: true do

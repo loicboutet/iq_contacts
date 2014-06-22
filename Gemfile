@@ -47,7 +47,7 @@ gem 'mini_magick', '~> 3.7.0'
 gem 'wicked_pdf'
 gem "wkhtmltopdf-heroku", :git => 'git://github.com/apancik/wkhtmltopdf-heroku.git', group: :production
 gem 'geokit-rails'
-
+gem 'devise'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
