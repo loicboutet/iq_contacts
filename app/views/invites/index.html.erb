@@ -7,7 +7,7 @@
 <% if !@contacts.nil?%>
 	<% @contacts.each do |c|%>
 	<ul>
-		<li><%= c[:name]%> : 	<%= c[:email]%></li>
+		<li><%= c.inspect %></li>
 	</ul>
 	<%end%>
 <%end%>
