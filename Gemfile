@@ -26,10 +26,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'less-rails'
   gem 'better_errors'
   gem 'byebug'
   gem 'quiet_assets'
+  gem 'wkhtmltopdf-binary'
 end
 
 
@@ -44,6 +44,8 @@ gem 'acts-as-taggable-on'
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick', '~> 3.7.0'
+gem 'wicked_pdf'
+gem "wkhtmltopdf-heroku", :git => 'git://github.com/apancik/wkhtmltopdf-heroku.git', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

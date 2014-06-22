@@ -11,6 +11,13 @@ class ContactsController < ApplicationController
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf do
+        render :pdf => "#{@contact.last_name}_#{@contact.first_name}"
+      end
+    end
   end
 
   # GET /contacts/new
