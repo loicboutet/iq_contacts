@@ -4,14 +4,13 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
+    @contacts = current_user.contacts
     if params[:sw].present? && params[:ne].present?
       begin
-        @contacts = Contact.in_bounds([params[:sw], params[:ne]])
+        @contacts = @contacts.in_bounds([params[:sw], params[:ne]])
       rescue => e
-        @contacts = Contact.all
+        # something wrong with the params, ignore silently
       end
-    else
-      @contacts = Contact.all
     end
     if params[:search]
       @contacts = @contacts.search(params[:search])
@@ -47,8 +46,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
-    @contact = Contact.new(contact_params)
-
+    @contact = current_user.contacts.new(contact_params)
     respond_to do |format|
       if @contact.save
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
@@ -87,7 +85,7 @@ class ContactsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
-      @contact = Contact.find(params[:id])
+      @contact = current_user.contacts.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: iq_contacts_production
-  username: iq_contacts
+#  username: iq_contacts
   password: <%= ENV['IQ_CONTACTS_DATABASE_PASSWORD'] %>

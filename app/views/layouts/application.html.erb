@@ -18,7 +18,7 @@
 	    <!-- Bootstrap core CSS -->
 	    <%= stylesheet_link_tag("application") %>
 	    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" rel="stylesheet" />
-
+			<%= csrf_meta_tag %>
 			<%= yield :stylesheet %>
 
 	</head>
@@ -36,19 +36,21 @@
 				<i class="fa fa-search"></i>
 				<%= text_field_tag "search", nil, placeholder: "Search... ", class: "form-control" %>
 			<% end %>
-	    <ul class="nav navbar-nav navbar-right">
-				<li class="dropdown visible-md visible-lg">
-	        		<a href="/#" class="dropdown-toggle" data-toggle="dropdown"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;padding:0 7px"></a>
-	        		<ul class="dropdown-menu">
-						<li><a href="/#"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;"> US</a></li>
-						<li><a href="/#"><img src="<%= image_url("flags/France.png")%>" style="height:18px; margin-top:-2px;"> French</a></li>
-	        		</ul>
-	      		</li>
-				<li><a href="/contacts/new"><i class="fa fa-plus"></i></a></li>
-				<li><a href="/maps/show"><i class="fa fa-globe"></i></a></li>
-				<li><a href="/#"><i class="fa fa-cog"></i></a></li>
-				<li><a href="/#"><i class="fa fa-power-off"></i></a></li>
-			</ul>
+			<% if current_user.present? %>
+		    <ul class="nav navbar-nav navbar-right">
+					<li class="dropdown visible-md visible-lg">
+		        		<a href="/#" class="dropdown-toggle" data-toggle="dropdown"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;padding:0 7px"></a>
+		        		<ul class="dropdown-menu">
+							<li><a href="/#"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;"> US</a></li>
+							<li><a href="/#"><img src="<%= image_url("flags/France.png")%>" style="height:18px; margin-top:-2px;"> French</a></li>
+		        		</ul>
+		      		</li>
+					<li><a href="/contacts/new"><i class="fa fa-plus"></i></a></li>
+					<li><a href="/maps/show"><i class="fa fa-globe"></i></a></li>
+					<li><a href="/#"><i class="fa fa-cog"></i></a></li>
+					<li><%= logout_link do %><i class="fa fa-power-off"></i><% end %></li>
+				</ul>
+			<% end %>
 		</div>
 	</div>
 	<!-- end: Header -->

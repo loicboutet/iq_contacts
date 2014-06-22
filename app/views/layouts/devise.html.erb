@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="iQ Contacts - the best contact management webapp">
+      <meta name="author" content="Loïc Boutet">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_url("apple-touch-icon-144-precomposed.png")%>">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= image_url("apple-touch-icon-114-precomposed.png")%>">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= image_url("apple-touch-icon-72-precomposed.png")%>">
+      <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<%= image_url("apple-touch-icon-57-precomposed.png")%>">
+      <link rel="shortcut icon" href="<%= image_url("favicon.png")%>">
+
+      <title>iQ Contacts - the best contact management webapp</title>
+
+      <!-- Bootstrap core CSS -->
+      <%= stylesheet_link_tag("application") %>
+      <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" media="screen" rel="stylesheet" />
+      <%= csrf_meta_tag %>
+      <%= yield :stylesheet %>
+
+  </head>
+</head>
+
+<body class="sidebar-hide">
+    <!-- start: Header -->
+
+  <div class="container-fluid content">
+
+
+      <!-- start: Content -->
+      <div class="main ">
+
+
+        <div class="row">
+
+          <%= yield %>
+
+        </div><!--/.row-->
+
+      </div><!--/content-->
+
+  </div><!--/container-->
+
+
+
+  <div class="clearfix"></div>
+
+
+  <!-- start: JavaScript-->
+  <%= javascript_include_tag("application") %>
+
+  <%= yield :javascript %>
+
+
+</body>
+</html>
