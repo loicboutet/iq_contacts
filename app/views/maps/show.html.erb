@@ -1,0 +1,44 @@
+<% content_for :javascript do %>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+  <script>
+    var map = L.mapbox.map('map', 'chewbie.ij2fccgl')
+      .setView(<%= geo_location %>, 9);
+
+
+    getMarker();
+    map.on("moveend", getMarker);
+
+
+
+    function getMarker(e) {
+      bounds = map.getBounds();
+      var featureLayer = L.mapbox.featureLayer()
+            .loadURL('/contacts.geojson?' + boundString(bounds))
+            .addTo(map);
+    }
+
+
+    function boundString(bounds){
+      var ne = bounds._northEast;
+      var sw = bounds._southWest;
+      var bound_string = 'ne[]=' + ne.lat + '&ne[]=' + ne.lng;
+      bound_string += '&sw[]=' + sw.lat + '&sw[]=' + sw.lng;
+      return bound_string;
+    }
+  </script>
+<% end %>
+
+<% content_for :stylesheet do %>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
+<% end %>
+
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2><strong>Show</strong> Map</h2>
+    </div>
+    <div class="panel-body">
+      <div id='map' style="height:500px;"></div>
+    </div>
+  </div>
+</div>

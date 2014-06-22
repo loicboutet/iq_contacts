@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+
+  get 'maps/show'
+
   resources :contacts
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,8 +4,23 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    search_query = params[:search] || ""
-    @contacts = Contact.search(search_query)
+    if params[:sw].present? && params[:ne].present?
+      begin
+        @contacts = Contact.in_bounds([params[:sw], params[:ne]])
+      rescue => e
+        @contacts = Contact.all
+      end
+    else
+      @contacts = Contact.all
+    end
+    if params[:search]
+      @contacts = @contacts.search(params[:search])
+    end
+    respond_to do |format|
+      format.html
+      format.json
+      format.geojson
+    end
   end
 
   # GET /contacts/1
