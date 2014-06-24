@@ -2,7 +2,7 @@ module ContactsHelper
 
   def cache_key_with_format(model, format)
     return "" if model.blank?
-    return model.cache_key.to_s + format.to_s + I18n.locale
+    return model.cache_key.to_s + format.to_s + I18n.locale.to_s
   end
 
 end
