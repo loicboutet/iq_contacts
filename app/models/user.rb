@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :contacts
+  has_many :contacts, -> { order("last_name DESC", "first_name DESC") }
 end

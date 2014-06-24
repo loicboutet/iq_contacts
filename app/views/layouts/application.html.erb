@@ -39,8 +39,12 @@
 			<% if current_user.present? %>
 		    <ul class="nav navbar-nav navbar-right">
 					<li class="dropdown visible-md visible-lg">
+								<% if I18n.locale == :en %>
 		        		<a href="/#" class="dropdown-toggle" data-toggle="dropdown"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;padding:0 7px"></a>
-		        		<ul class="dropdown-menu">
+		        		<% else %>
+								<a href="/#" class="dropdown-toggle" data-toggle="dropdown"><img src="<%= image_url("flags/France.png")%>" style="height:18px; margin-top:-2px;padding:0 7px"></a>
+								<% end %>
+								<ul class="dropdown-menu">
 							<li><a href="/en"><img src="<%= image_url("flags/USA.png")%>" style="height:18px; margin-top:-2px;"> English</a></li>
 							<li><a href="/fr"><img src="<%= image_url("flags/France.png")%>" style="height:18px; margin-top:-2px;"> Français</a></li>
 		        		</ul>
