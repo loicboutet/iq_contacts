@@ -1,6 +1,7 @@
 <% content_for :javascript do %>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
   <script>
+    $(".navbar-form").attr("action", "/en/maps/show")
     var map = L.mapbox.map('map', 'chewbie.ij2fccgl')
       .setView(<%= geo_location %>, 9);
 
@@ -13,10 +14,18 @@
     function getMarker(e) {
       bounds = map.getBounds();
       var featureLayer = L.mapbox.featureLayer()
-            .loadURL('/en/contacts.geojson?' + boundString(bounds))
+            .loadURL('/en/contacts.geojson?' + searchString() + boundString(bounds))
             .addTo(map);
     }
 
+    function searchString(){
+      var search = getParameterByName("search")
+      if (search != "") {
+        return "search="+search+"&"
+      } else {
+        return ""
+      }
+    }
 
     function boundString(bounds){
       var ne = bounds._northEast;
@@ -24,6 +33,13 @@
       var bound_string = 'ne[]=' + ne.lat + '&ne[]=' + ne.lng;
       bound_string += '&sw[]=' + sw.lat + '&sw[]=' + sw.lng;
       return bound_string;
+    }
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
   </script>
 <% end %>
