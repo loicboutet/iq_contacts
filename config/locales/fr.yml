@@ -22,6 +22,8 @@ fr:
         occupation: "Métier"
         tag_list: "Liste de Tag"
         avatar: "Photo"
+  map:
+    see: "Voir"
   contacts:
     first_name: "Prénom"
     last_name: "Nom de Famille"

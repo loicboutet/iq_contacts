@@ -6,6 +6,7 @@ json.array!(@contacts) do |contact|
   end
   json.properties do
     json.title "#{contact.first_name} #{contact.last_name}"
+    json.description "#{link_to t("map.see"), contact_url(contact)}"
     json.set! 'marker-color', '#fc4353'
     json.set! 'marker-size', 'large'
     json.set! 'marker-symbol', 'suitcase'

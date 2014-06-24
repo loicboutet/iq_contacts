@@ -24,6 +24,8 @@ en:
     attributes:
       contact:
         avatar: "Picture"
+  map:
+    see: "Show"      
   contacts:
     first_name: "First Name"
     last_name: "Last Name"
