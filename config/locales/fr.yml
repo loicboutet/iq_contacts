@@ -7,6 +7,21 @@
 # Emended by Benjamin des Gachons and Patrick Chew : <http://www.fitima.org/docs/fiche.pdf>
 
 fr:
+  activerecord:
+    attributes:
+      contact:
+        first_name: "Prénom"
+        last_name: "Nom de Famille"
+        company: "Société"
+        address_street: "Rue"
+        address_city: "Ville"
+        address_country: "Pays"
+        email: "Email"
+        mobile_phone: "Téléphone Mobile"
+        landline_phone: "Téléphone Fixe"
+        occupation: "Métier"
+        tag_list: "Liste de Tag"
+        avatar: "Photo"
   contacts:
     first_name: "Prénom"
     last_name: "Nom de Famille"

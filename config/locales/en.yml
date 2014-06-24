@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    attributes:
+      contact:
+        avatar: "Picture"
   contacts:
     first_name: "First Name"
     last_name: "Last Name"
@@ -39,7 +43,7 @@ en:
   fileupload:
     select: "Select an Image"
     change: "Change"
-    remove: "Remove"  
+    remove: "Remove"
   menu:
     contact_geolocalisation: "Contacts Geolocalisation"
     contact_new: "New Contact"
