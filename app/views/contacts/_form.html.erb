@@ -1,17 +1,5 @@
 <%= form_for(@contact, multipart:true, html: {class: "form-horizontal"}) do |f| %>
   <div class="panel-body">
-    <% if @contact.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-        <ul>
-        <% @contact.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
     <div class="form-group">
       <label class="col-md-3 control-label" for="text-input"><%= f.label :avatar %></label>
       <div class="col-md-9">
@@ -42,7 +30,7 @@
     <div class="form-group">
       <label class="col-md-3 control-label" for="text-input"><%= f.label :last_name %><span>*</span></label>
       <div class="col-md-9">
-        <%= f.text_field :last_name, :class => "form-control", :placeholder => t("contacts.last_name") %>
+        <%= f.text_field :last_name, :class => "form-control", :required => true, :placeholder => t("contacts.last_name") %>
       </div>
     </div>
 
