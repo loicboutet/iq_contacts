@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622170550) do
+ActiveRecord::Schema.define(version: 20140622214025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20140622170550) do
     t.decimal  "lat"
     t.decimal  "lng"
     t.integer  "user_id"
+    t.string   "email"
+    t.string   "mobile_phone"
+    t.string   "landline_phone"
+    t.string   "address_country"
+    t.string   "occupation"
   end
 
   add_index "contacts", ["lat"], name: "index_contacts_on_lat", using: :btree

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 
+  get 'invites/index'
+	get "/invites/:provider/contact_callback" => "invites#index"
+	get "/contacts/failure" => "invites#failure"
+
+
   devise_for :users
   get 'maps/show'
 
@@ -11,7 +16,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'contacts#index'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

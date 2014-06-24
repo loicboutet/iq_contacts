@@ -13,49 +13,6 @@
     <% end %>
 
     <div class="form-group">
-      <label class="col-md-3 control-label" for="text-input"><%= f.label :first_name %></label>
-      <div class="col-md-9">
-        <%= f.text_field :first_name, :class => "form-control", :placeholder => t("contacts.first_name") %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-3 control-label" for="text-input"><%= f.label :last_name %></label>
-      <div class="col-md-9">
-        <%= f.text_field :last_name, :class => "form-control", :placeholder => t("contacts.last_name") %>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-md-3 control-label" for="text-input"><%= f.label :company %></label>
-      <div class="col-md-9">
-        <%= f.text_field :company, :class => "form-control", :placeholder => t("contacts.company") %>
-      </div>
-    </div>
-
-
-    <div class="form-group">
-      <label class="col-md-3 control-label" for="text-input"><%= f.label :address_street %></label>
-      <div class="col-md-9">
-        <%= f.text_field :address_street, :class => "form-control", :placeholder => t("contacts.address_street") %>
-      </div>
-    </div>
-
-    <div clas="form-group">
-      <label class="col-md-3 control-label" for="text-input"><%= f.label :address_city %></label>
-      <div class="col-md-9">
-        <%= f.text_field :address_city, :class => "form-control", :placeholder => t("contacts.address_city") %>
-      </div>
-    </div>
-
-    <div clas="form-group">
-      <label class="col-md-3 control-label" for="text-input"><%= f.label :tag_list %></label>
-      <div class="col-md-9">
-        <%= f.hidden_field :tag_list, :class => "form-control", :placeholder => t("contacts.address_city") %>
-      </div>
-    </div>
-
-    <div clas="form-group">
       <label class="col-md-3 control-label" for="text-input"><%= f.label :avatar %></label>
       <div class="col-md-9">
         <div class="fileinput <%= @contact.avatar.present? ? 'fileinput-exists' : 'fileinput-new' %>" data-provides="fileinput">
@@ -73,6 +30,89 @@
         </div>
       </div>
     </div>
+
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :first_name %><span>*</span></label>
+      <div class="col-md-9">
+        <%= f.text_field :first_name, :class => "form-control", :required => true, :placeholder => t("contacts.first_name") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :last_name %><span>*</span></label>
+      <div class="col-md-9">
+        <%= f.text_field :last_name, :class => "form-control", :placeholder => t("contacts.last_name") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :company %></label>
+      <div class="col-md-9">
+        <%= f.text_field :company, :class => "form-control", :placeholder => t("contacts.company") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :occupation %></label>
+      <div class="col-md-9">
+        <%= f.text_field :occupation, :class => "form-control", :placeholder => t("contacts.occupation") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :email %></label>
+      <div class="col-md-9">
+        <%= f.text_field :email, :class => "form-control", :placeholder => t("contacts.email") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :mobile_phone %></label>
+      <div class="col-md-9">
+        <%= f.text_field :mobile_phone, :class => "form-control", :placeholder => t("contacts.mobile_phone") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :landline_phone %></label>
+      <div class="col-md-9">
+        <%= f.text_field :landline_phone, :class => "form-control", :placeholder => t("contacts.landline_phone") %>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :address_street %></label>
+      <div class="col-md-9">
+        <%= f.text_field :address_street, :class => "form-control", :placeholder => t("contacts.address_street") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :address_city %></label>
+      <div class="col-md-9">
+        <%= f.text_field :address_city, :class => "form-control", :placeholder => t("contacts.address_city") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :address_country %></label>
+      <div class="col-md-9">
+        <%= f.text_field :address_country, :class => "form-control", :placeholder => t("contacts.address_country") %>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label class="col-md-3 control-label" for="text-input"><%= f.label :tag_list %></label>
+      <div class="col-md-9">
+        <%= f.hidden_field :tag_list, :class => "form-control", :placeholder => t("contacts.tag_list") %>
+      </div>
+    </div>
+
 
 
   </div>

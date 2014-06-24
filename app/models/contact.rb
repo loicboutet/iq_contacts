@@ -18,15 +18,16 @@ class Contact < ActiveRecord::Base
       tag_list.join(",")
     end
 
-    attributesToIndex ['first_name', 'last_name',
+    attributesToIndex ['first_name', 'last_name', 'unordered(occupation)',
+      'unordered(landline_phone)', 'unordered(mobile_phone)', 
       'unordered(company)', 'unordered(address_street)', 'unordered(address_city)',
-       'unordered(tag_string)']
+       'unordered(address_country)', 'unordered(tag_string)']
 
     customRanking ["desc(last_name)", "desc(first_name)"]
   end
 
   def address
-    "#{address_street}, #{address_city}, France"
+    "#{address_street}, #{address_city}, #{address_country}"
   end
 
   # small turn around because algolia didn't update correctly
