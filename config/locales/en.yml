@@ -27,6 +27,17 @@ en:
     company: "Company"
     address_street: "Street"
     address_city: "City"
+    address_country: "Country"
+    email: "Email"
+    mobile_phone: "Mobile Phone"
+    landline_phone: "Landline Phone"
+    occupation: "Occupation"
+    tag_list: "Tag List"
+  menu:
+    contact_geolocalisation: "Contacts Geolocalisation"
+    contact_new: "New Contact"
+    contact_import: "Import"
+    contact_index: "List"
   tags:
     work: "Work"
     familly: "Familly"

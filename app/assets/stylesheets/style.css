@@ -1163,6 +1163,15 @@ fieldset[disabled] .form-control {
 .has-error .checkbox-inline {
   color: #ff5454;
 }
+
+.has-error {
+  color: #ff5454;
+border-color: #ff5454;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+
+}
 .has-error .form-control {
   border-color: #ff5454;
   -webkit-box-shadow: none;

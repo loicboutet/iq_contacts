@@ -29,7 +29,7 @@
 	<div class="navbar" role="navigation">
 		<div class="container-fluid">
 			<ul class="nav navbar-nav navbar-actions navbar-left">
-				<li class="visible-md visible-lg"><a href="/#" id="home"><i class="fa fa-bars"></i></a></li>
+				<li class="visible-md visible-lg"><a href="/#" id="home" data-toggle="tooltip" data-placement="bottom" title="<%= t("menu.contact_index") %>"><i class="fa fa-bars"></i></a></li>
 				<li class="visible-xs visible-sm"><a href="/#" id="sidebar-menu"><i class="fa fa-bars"></i></a></li>
 			</ul>
 			<%= form_tag contacts_url, method: :get, class: "navbar-form navbar-left" do %>
@@ -45,10 +45,10 @@
 							<li><a href="/#"><img src="<%= image_url("flags/France.png")%>" style="height:18px; margin-top:-2px;"> French</a></li>
 		        		</ul>
 		      		</li>
-					<li><a href="/contacts/new"><i class="fa fa-plus"></i></a></li>
-					<li><a href="/maps/show"><i class="fa fa-globe"></i></a></li>
+					<li><a id="new-link" data-toggle="tooltip" data-placement="bottom" title="<%= t("menu.contact_new") %>" href="/contacts/new"><i class="fa fa-plus"></i></a></li>
+					<li><a id="map-link" data-toggle="tooltip" data-placement="bottom" title="<%= t("menu.contact_geolocalisation") %>" href="/maps/show"><i class="fa fa-globe"></i></a></li>
 					<li class="dropdown visible-md visible-lg">
-	        		<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cloud-download"></i></a>
+	        		<a href="index.html#" id="import-link" data-toggle="tooltip" data-placement="bottom" title="<%= t("menu.contact_import") %>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cloud-download"></i></a>
 	        		<ul class="dropdown-menu">
 						<li class="dropdown-menu-header text-center">
 							<strong><%= t("menu.import") %></strong>
@@ -103,7 +103,6 @@
 
 	<!-- start: JavaScript-->
 	<%= javascript_include_tag("application") %>
-
 	<%= yield :javascript %>
 
 
