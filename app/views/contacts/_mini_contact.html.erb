@@ -1,35 +1,40 @@
-<div class="col-lg-3 col-md-6 col-sm-6">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <a href="<%= contact_url(contact) %>">
-        <div class="col-sm-4">
-          <div class="text-center">
-            <img alt="image" class="img-circle m-t-xs img-responsive" src="<%= contact.avatar.url %>">
-            <div class="m-t-xs font-bold"><%= contact.occupation %></div>
+<% cache(cache_key_with_format(@contact, "mini")) do %>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <a href="<%= contact_url(contact) %>">
+          <div class="col-sm-4">
+            <div class="text-center">
+              <img alt="image" class="img-circle m-t-xs img-responsive" src="<%= contact.avatar.url %>">
+              <div class="m-t-xs font-bold"><%= contact.occupation %></div>
+            </div>
           </div>
-        </div>
-        <div class="col-sm-8">
-          <h3><strong><%= "#{contact.first_name} #{contact.last_name}"%> </strong></h3>
-          <p>
-            <% if contact.company.present? %>
-              <i class="fa fa-suitcase"></i> <%= contact.company %>
-            <% end %>
-          </p>
-          <address>
-            <% if contact.address_street.present? || contact.address_city.present? || contact.address_country.present? %>
-              <i class="fa fa-home"></i> <%= contact.address_street %> <% if contact.address_street.present? %><br> <% end %>
-              <span class="pull-left" style="width:18px">&nbsp;</span><%= contact.address_city %> <%= contact.address_country %><br>
-            <% end %>
-            <% if contact.mobile_phone.present? %>
-              <i class="fa fa-mobile-phone"></i> <%= contact.mobile_phone %><br/>
-            <% end %>
-            <% if contact.landline_phone.present? %>
-              <i class="fa fa-phone"></i> <%= contact.landline_phone %>
-            <% end %>
-          </address>
-        </div>
-        <div class="clearfix"></div>
-      </a>
-    </div>
-  </div><!--/.info-box-->
-</div><!--/.col-->
+          <div class="col-sm-8">
+            <h3><strong><%= "#{contact.first_name} #{contact.last_name}"%> </strong></h3>
+            <p>
+              <% if contact.company.present? %>
+                <i class="fa fa-suitcase"></i> <%= contact.company %>
+              <% end %>
+            </p>
+            <address>
+              <% if contact.address_street.present? || contact.address_city.present? || contact.address_country.present? %>
+                <i class="fa fa-home"></i> <%= contact.address_street %> <% if contact.address_street.present? %> <% end %>
+                <%= contact.address_city %> <%= contact.address_country %><br>
+              <% end %>
+              <% if contact.email.present? %>
+                <i class="fa fa-envelope-o"></i> <%= contact.email %><br/>
+              <% end %>
+              <% if contact.mobile_phone.present? %>
+                <i class="fa fa-mobile-phone"></i> <%= contact.mobile_phone %><br/>
+              <% end %>
+              <% if contact.landline_phone.present? %>
+                <i class="fa fa-phone"></i> <%= contact.landline_phone %>
+              <% end %>
+            </address>
+          </div>
+          <div class="clearfix"></div>
+        </a>
+      </div>
+    </div><!--/.info-box-->
+  </div><!--/.col-->
+<% end %>

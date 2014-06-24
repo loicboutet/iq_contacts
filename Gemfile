@@ -27,11 +27,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'better_errors'
-  gem 'byebug'
   gem 'quiet_assets'
   gem 'wkhtmltopdf-binary'
 end
 
+group :development, :test do
+  gem 'byebug'
+  gem 'rspec-rails', '~> 3.0.0'
+end
 
 gem 'therubyracer'
 
@@ -49,7 +52,8 @@ gem "wkhtmltopdf-heroku", :git => 'git://github.com/apancik/wkhtmltopdf-heroku.g
 gem 'geokit-rails'
 gem 'devise'
 gem "omnicontacts"
-
+gem 'dalli'
+gem 'memcachier'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

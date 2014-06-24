@@ -42,9 +42,11 @@ private
   def geocode_address
     return if self.lat.present? && self.lng.present?
     if address_country.present? && address_city.present?
-      geo=Geokit::Geocoders::MultiGeocoder.geocode (address)
-      errors.add(:address, I18n.t("errors.could_not_geocode")) if !geo.success
-      self.lat, self.lng = geo.lat,geo.lng if geo.success
+      begin
+        geo=Geokit::Geocoders::MultiGeocoder.geocode (address)
+        self.lat, self.lng = geo.lat,geo.lng if geo.success
+      rescue => e
+      end
     end
   end
 
