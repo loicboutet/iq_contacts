@@ -12,8 +12,8 @@
             <% end %>
           </div>
           <div>
-            <span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><%= f.file_field "avatar" %></span>
-            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+            <span class="btn btn-default btn-file"><span class="fileinput-new"><%= t("fileupload.select") %></span><span class="fileinput-exists"><%= t("fileupload.change") %></span><%= f.file_field "avatar" %></span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><%= t("fileupload.remove") %></a>
           </div>
         </div>
       </div>

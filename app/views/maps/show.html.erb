@@ -13,7 +13,7 @@
     function getMarker(e) {
       bounds = map.getBounds();
       var featureLayer = L.mapbox.featureLayer()
-            .loadURL('/contacts.geojson?' + boundString(bounds))
+            .loadURL('/en/contacts.geojson?' + boundString(bounds))
             .addTo(map);
     }
 

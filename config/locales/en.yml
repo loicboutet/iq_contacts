@@ -20,7 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   contacts:
     first_name: "First Name"
     last_name: "Last Name"
@@ -33,6 +32,14 @@ en:
     landline_phone: "Landline Phone"
     occupation: "Occupation"
     tag_list: "Tag List"
+    edit: "Edit"
+    export: "Export"
+    cancel: "Cancel"
+    delete: "Delete"
+  fileupload:
+    select: "Select an Image"
+    change: "Change"
+    remove: "Remove"  
   menu:
     contact_geolocalisation: "Contacts Geolocalisation"
     contact_new: "New Contact"

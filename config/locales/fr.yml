@@ -9,10 +9,34 @@
 fr:
   contacts:
     first_name: "Prénom"
+    last_name: "Nom de Famille"
+    company: "Société"
+    address_street: "Rue"
+    address_city: "Ville"
+    address_country: "Pays"
+    email: "Email"
+    mobile_phone: "Téléphone Mobile"
+    landline_phone: "Téléphone Fixe"
+    occupation: "Métier"
+    tag_list: "Liste de Tag"
+    edit: "Editer"
+    export: "Exporter"
+    cancel: "Annuler"
+    delete: "Supprimer"
+    submit: "Envoyer"
+  fileupload:
+    select: "Choisir une Image"
+    change: "Changer"
+    remove: "Enlever"
+  menu:
+    contact_geolocalisation: "Geolocalisation des Contacts"
+    contact_new: "Nouveau Contact"
+    contact_import: "Import"
+    contact_index: "Liste"
   tags:
     work: "Travail"
-    friends: "Amis"
     familly: "Famille"
+    friends: "Amis"
   date:
     abbr_day_names:
       - dim

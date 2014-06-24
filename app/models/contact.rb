@@ -27,7 +27,7 @@ class Contact < ActiveRecord::Base
   end
 
   def address
-    "#{address_street}, #{address_city}, #{address_country}"
+    "#{address_street} #{address_city} #{address_country}"
   end
 
 private
@@ -40,12 +40,14 @@ private
   end
 
   def geocode_address
-    return if self.lat.present? && self.lng.present?
-    if address_country.present? && address_city.present?
-      begin
-        geo=Geokit::Geocoders::MultiGeocoder.geocode (address)
-        self.lat, self.lng = geo.lat,geo.lng if geo.success
-      rescue => e
+
+    if (self.lat.blank? and self.lng.blank?) or (address_country_changed? || address_city_changed? || address_street_changed?)
+      if address_country.present? && address_city.present?
+        begin
+          geo=Geokit::Geocoders::MultiGeocoder.geocode (address)
+          self.lat, self.lng = geo.lat,geo.lng if geo.success
+        rescue => e
+        end
       end
     end
   end

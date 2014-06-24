@@ -128,6 +128,9 @@ $(document).ready(function($) {
 
 	});
 
+
+
+
 });
 
 $(document).ready(function($){
@@ -223,7 +226,6 @@ function widthFunctions(e) {
 
 	$('#map-link').tooltip();
 	$('#new-link').tooltip();
-	$('#import-link').tooltip();
 	$('#home').tooltip();
 
 

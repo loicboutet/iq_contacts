@@ -1,21 +1,27 @@
 Rails.application.routes.draw do
 
+  scope ":locale", locale: /en|fr/ do
+    get 'invites/index'
+  	get "/invites/:provider/contact_callback" => "invites#index"
+  	get "/contacts/failure" => "invites#failure"
 
-  get 'invites/index'
-	get "/invites/:provider/contact_callback" => "invites#index"
-	get "/contacts/failure" => "invites#failure"
+
+    devise_for :users
+    get 'maps/show'
+
+    resources :contacts
+
+    # The priority is based upon order of creation: first created -> highest priority.
+    # See how all your routes lay out with "rake routes".
+
+    # You can have the root of your site routed with "root"
+    root 'contacts#index'
+  end
+
+  match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with?("/#{I18n.default_locale}/") }, via: :all
+  match '', to: redirect("/#{I18n.default_locale}"), via: :all
 
 
-  devise_for :users
-  get 'maps/show'
-
-  resources :contacts
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  root 'contacts#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
