@@ -4,34 +4,36 @@
       <a href="<%= contact_url(@contact) %>">
         <div class="col-sm-4">
           <div class="text-center">
-            <%= wicked_pdf_image_tag @contact.avatar.url %>
-            <div class="m-t-xs font-bold">Graphics designer</div>
+            <%= image_tag @contact.avatar.url(:preview) %>
+            <div class="m-t-xs font-bold"><%= @contact.occupation %></div>
           </div>
         </div>
         <div class="col-sm-8">
           <h3><strong><%= "#{@contact.first_name} #{@contact.last_name}"%> </strong></h3>
-          <p><i class="fa fa-map-marker"></i> <%= @contact.company %></p>
+          <p>
+            <% if @contact.company.present? %>
+              <i class="fa fa-suitcase"></i> <%= @contact.company %>
+            <% end %>
+          </p>
           <address>
-            <strong>Twitter, Inc.</strong><br>
-            <%= @contact.address_street %><br>
-            <%= @contact.address_city %>, CA 94107<br>
-            <abbr title="Phone">P:</abbr> (123) 456-7890
+            <% if @contact.address_street.present? || @contact.address_city.present? || @contact.address_country.present? %>
+              <i class="fa fa-home"></i> <%= @contact.address_street %> <% if @contact.address_street.present? %> <% end %>
+              <%= @contact.address_city %> <%= @contact.address_country %><br>
+            <% end %>
+            <% if @contact.email.present? %>
+              <i class="fa fa-envelope-o"></i> <%= @contact.email %><br/>
+            <% end %>
+            <% if @contact.mobile_phone.present? %>
+              <i class="fa fa-mobile-phone"></i> <%= @contact.mobile_phone %><br/>
+            <% end %>
+            <% if @contact.landline_phone.present? %>
+              <i class="fa fa-phone"></i> <%= @contact.landline_phone %>
+            <% end %>
           </address>
+          <% if @contact.tag_list.present? %>
+            <p>Tags : <%= @contact.tag_list.join(",") %></p>
+          <% end %>
         </div>
         <div class="clearfix"></div>
       </a>
-    </div>
-    <div class="panel-footer">
-      <%= link_to(edit_contact_url(@contact), class: "btn btn-sm btn-primary") do %>
-        <i class="fa fa-dot-circle-o"></i> <%= t("contacts.edit") %>
-      <% end %>
-
-      <%= link_to(contacts_url, class: "btn btn-sm btn-default") do %>
-        <i class="fa fa-ban"></i> <%= t("contacts.cancel") %>
-      <% end %>
-
-    </div>
-  </div><!--/.info-box-->
-
-
-</div><!--/.col-->
+</div>
