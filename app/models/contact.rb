@@ -20,7 +20,7 @@ class Contact < ActiveRecord::Base
     end
 
     attributesToIndex ['first_name', 'last_name', 'unordered(occupation)',
-      'unordered(landline_phone)', 'unordered(mobile_phone)',
+      'unordered(landline_phone)', 'unordered(mobile_phone)', 'unordered(email)',
       'unordered(company)', 'unordered(address_street)', 'unordered(address_city)',
        'unordered(address_country)', 'unordered(tag_string)']
 
