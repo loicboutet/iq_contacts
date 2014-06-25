@@ -13,7 +13,8 @@ class Contact < ActiveRecord::Base
 
 
   algoliasearch per_environment: true do
-    attribute :first_name, :last_name, :company, :address_street, :address_city
+    attribute :first_name, :last_name, :occupation, :company, :landline_phone,
+              :mobile_phone, :address_street, :address_city, :address_country
     attribute :tag_string do
       tag_list.join(",")
     end
