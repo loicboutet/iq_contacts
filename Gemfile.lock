@@ -116,6 +116,7 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.11)
     omnicontacts (0.3.4)
       json
@@ -232,6 +233,7 @@ DEPENDENCIES
   jquery-rails
   memcachier
   mini_magick (~> 3.7.0)
+  newrelic_rpm
   omnicontacts
   pg
   quiet_assets
